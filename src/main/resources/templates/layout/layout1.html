@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> <!-- 레이아웃용 필수 : 타입리프용 프론트로 연동됨.-->
+<head>
+    <meta charset="UTF-8">
+    <title>프론트 레이아웃 담당용</title>
+</head>
+<body>
+<div>
+<h3>This is sample layout page.</h3>
+<h2>Shards of layout = fragment </h2>
+    <h2>you can use here as a header.</h2>
+</div>
+<div layout:fragment="content">
+  Here is for contents.
+</div>
+<div><h3>footer</h3></div>
+<th:block layout:fragment="script">
+  <!--for javascript-->
+<script layout:fragment="script" th:inline="javascript">
+    const arr = [[$arr]]
+    /* 컨트롤러에서 모델로 보낸 객체를 가져와 변수에 넣는다. */
+    console.log(arr)
+</script>
+</th:block>
+</body>
+</html>
